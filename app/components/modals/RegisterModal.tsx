@@ -11,6 +11,7 @@ import {
 } from 'react-hook-form'
 import useRegisterModal from '@/app/hooks/useRegisteredModal';
 import Modal from './Modal';
+import Heading from '../Heading';
 
 const RegisterModal = () => {
     const registerModal = useRegisterModal();
@@ -43,6 +44,13 @@ const RegisterModal = () => {
             setIsLoading(false);
         })
     }
+
+    const bodyContent = (
+        <div className="flex flex-col gap-4">
+            <Heading />
+        </div>
+    )
+
     return (
         <div>
             <Modal 
@@ -51,7 +59,8 @@ const RegisterModal = () => {
                 title="Register" 
                 actionLabl="Continue" 
                 onClose={registerModal.onClose}
-                onSubmit={handleSubmit(onSubmit)}
+                onSubmit={handleSubmit(onSubmit)} 
+                body={bodyContent}
             />
         </div>
     );
